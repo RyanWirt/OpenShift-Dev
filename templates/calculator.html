@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Calculator</title>
+    <style>
+        body { background: #2d3436; display: flex; height: 100vh; align-items: center; justify-content: center; }
+        .calc-container {
+            background: #636e72;
+            padding: 30px 25px;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px #000a;
+        }
+        .display {
+            background: #dfe6e9;
+            color: #2d3436;
+            font-size: 2em;
+            border-radius: 7px;
+            text-align: right;
+            padding: 10px 15px;
+            margin-bottom: 18px;
+            min-width: 230px;
+            min-height: 1.6em;
+        }
+        .result {
+            color: #00b894;
+            font-size: 1.1em;
+            min-height: 1em;
+            text-align: right;
+        }
+        form { display: grid; grid-template-columns: repeat(4, 60px); gap: 10px; }
+        button {
+            font-size: 1.4em;
+            border-radius: 7px;
+            border: none;
+            background: #b2bec3;
+            color: #2d3436;
+            padding: 15px 0;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        button:hover { background: #00b894; color: #fff; }
+        .operator { background: #00b894; color: #fff; }
+        .equal { background: #0984e3; color: #fff; grid-column: span 2; }
+        .clear { background: #d63031; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="calc-container">
+        <div class="display">{{ expr }}</div>
+        <div class="result">{{ result }}</div>
+        <form method="POST">
+            <input type="hidden" name="expr" value="{{ expr }}">
+            <button name="button" value="7">7</button>
+            <button name="button" value="8">8</button>
+            <button name="button" value="9">9</button>
+            <button name="button" value="/" class="operator">&divide;</button>
+
+            <button name="button" value="4">4</button>
+            <button name="button" value="5">5</button>
+            <button name="button" value="6">6</button>
+            <button name="button" value="*" class="operator">&times;</button>
+
+            <button name="button" value="1">1</button>
+            <button name="button" value="2">2</button>
+            <button name="button" value="3">3</button>
+            <button name="button" value="-" class="operator">&minus;</button>
+
+            <button name="button" value="0">0</button>
+            <button name="button" value="." >.</button>
+            <button name="button" value="C" class="clear">C</button>
+            <button name="button" value="+" class="operator">+</button>
+
+            <button name="button" value="=" class="equal">=</button>
+        </form>
+    </div>
+</body>
+</html>
